@@ -1,0 +1,94 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.traffic-signal {
+  display: flex;
+  text-align: center;
+  width: calc(
+    var(--columns) * var(--size) + (var(--columns) - 1) * var(--gap) + 40px
+  );
+
+  flex-wrap: wrap;
+}
+
+.countdown {
+  --columns: 17;
+  --rows: 18;
+  --size: 2vh;
+  --gap: 1vh;
+  width: calc(var(--columns) * var(--size) + (var(--columns) - 1) * var(--gap));
+  height: calc(var(--rows) * var(--size) + (var(--rows) - 1) * var(--gap));
+  margin: 0 auto 20px auto;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), var(--size));
+  grid-template-rows: repeat(var(--rows), var(--size));
+  gap: var(--gap);
+  border: 1vh solid #333;
+  border-radius: 6vh;
+  padding: 4vh;
+}
+
+.animation {
+  --columns: 15;
+  --rows: 15;
+  --column2: 18;
+  --row2: 18;
+  --size: 2vh;
+  --gap: 1vh;
+  width: calc(var(--column2) * var(--size) + (var(--column2) - 1) * var(--gap));
+  height: calc(var(--row2) * var(--size) + (var(--row2) - 1) * var(--gap));
+  margin: 0 auto 20px auto;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), var(--size));
+  grid-template-rows: repeat(var(--rows), var(--size));
+  align-content: center;
+  justify-content: center;
+
+  gap: var(--gap);
+  border: 1vh solid #333;
+  border-radius: 6vh;
+  padding: 4vh;
+}
+
+.pixel {
+  width: 2vh;
+  height: 2vh;
+  background-color: #333; /* Default color for 0 state */
+  border-radius: 1vh;
+}
+
+.pixel.on {
+  --primary: #9fcd99;
+  --color: #309343;
+  background-color: var(--primary); /* Color for 1 state in countdown */
+  box-shadow: 0px 0px 4px rgba(34, 34, 34, 0.5), 0px 0px 8px var(--color),
+    0px 0px 16px var(--color), 0px 0px 32px 1px var(--color),
+    0px 0px 64px 2px var(--color);
+}
+
+.pixel.on-yellow {
+  --primary: #ffdd71;
+  --color: #dba13a;
+  background-color: var(--primary); /* Color for 1 state in countdown */
+  box-shadow: 0px 0px 4px rgba(34, 34, 34, 0.5), 0px 0px 8px var(--color),
+    0px 0px 16px var(--color), 0px 0px 32px 1px var(--color),
+    0px 0px 64px 2px var(--color);
+  position: relative;
+}
+
+.pixel.on-red {
+  --color: #b10318;
+  background-color: var(--color); /* Color for 1 state in countdown */
+  box-shadow: 0px 0px 4px rgba(34, 34, 34, 0.5), 0px 0px 8px var(--color),
+    0px 0px 16px var(--color), 0px 0px 32px 1px var(--color),
+    0px 0px 64px 2px var(--color);
+}
+
+.red-light {
+  font-size: 1.5rem;
+  color: #b10318;
+  display: none;
+}
